@@ -10,7 +10,7 @@ Built with the Ark engine: https://github.com/omiron33/ark-video-studio
 
 The film runs **5:07** at **1920 × 1080 / 60 fps**. Every frame of its 53 scenes is drawn in code on the GPU: the Sea of Galilee at night, a hilltop town of lamplit windows, salt crystals, a Torah scroll, embers, a temple altar, roads and fires before dawn, and sunrise over the mount, with typography set to the sung onset of each word. Nothing in the picture is a photograph, a downloaded model or a generated image.
 
-The film passes through one night on the hills above the sea and ends at sunrise. Each Beatitude is a dark, quiet place given one small light. The choruses return to salt and lamplight, the Law is stone and lamplight, the hard teachings come in the grey-blue before dawn, and "Be perfect" is the mount filled with morning light. People appear only as cast shadows; Christ is the voice and the light, never a figure.
+The film passes through one night on the hills above the sea and ends at sunrise. Each Beatitude is a dark, quiet place given one small light. The choruses return to salt and lamplight, the Law is stone and lamplight, the hard teachings come in the grey-blue before dawn, and "Be perfect" is the mount filled with morning light. No person is shown: each teaching is carried by objects and light, and Christ is the voice and the light, never a figure.
 
 ## Quick start
 
