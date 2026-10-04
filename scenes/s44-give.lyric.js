@@ -9,7 +9,7 @@ export default lyricModule((ctx, t, P, lines) => {
   if (l2 && t > l2.start - 0.15) {
     const a2 = outFade(t, P.to - 0.3, P.to - 0.04);
     const i = l2.words.findIndex((w, k) => k > 2 && /^the$/i.test(w.w));
-    setLine(ctx, l2.words.slice(0, i), t, { x: 260, y: 460, px: 150, align: 'left', alpha: a2 });
-    setLine(ctx, l2.words.slice(i), t, { x: 260, y: 680, px: 150, align: 'left', alpha: a2 });
+    setLine(ctx, l2.words.slice(0, i), t, { x: 240, y: 460, px: 140, align: "left", alpha: a2 });
+    setLine(ctx, l2.words.slice(i), t, { x: 240, y: 670, px: 140, align: "left", alpha: a2 });
   }
 });

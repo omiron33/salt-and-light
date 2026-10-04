@@ -1,8 +1,8 @@
 // s26-grievance: "And remember your brother's grievance". A deep crack splits the great flagstones of
-// the temple court and runs away from the lens into the dark. A low moon behind the camera lays two
-// long human shadows down the pavement, one on either side of the crack, apart; the two who cast them
-// stand behind us and are never seen. The camera travels slowly along the crack; on "grievance" the
-// shadows draw a little further apart.
+// the temple court under a low moon and runs away from the lens into the dark. Two small clay oil
+// lamps sit one on either side of it, nozzles turned toward each other, their warm pools of light not
+// meeting. The camera travels slowly along the crack; on "grievance" the crack opens a little wider,
+// carrying the lamps further apart, and dust trickles off its lips into the dark.
 import { grade, ease, drift, linesAt, wordIn, clamp01, mix } from '/song/lib/look.js';
 import { CRACK_GLSL, CRACK_UNIFORMS } from '/song/lib/x-temple-crack.js';
 
@@ -25,10 +25,12 @@ export default (P) => {
     update(t, u) {
       const c = cam(t);
       const apart = ease.inOut3(clamp01((t - tG + 0.2) / 1.4));
-      u.uP1.value.set(mix(0.95, 1.1, apart), 0, -1.75);
-      u.uP2.value.set(mix(-0.9, -1.05, apart), 0, -1.85);
-      u.uPA.value.set(mix(0.2, 0.55, apart), mix(-0.25, -0.6, apart), 0);
-      u.uFocus.value = Math.hypot(c.pos[1], 3.2);
+      const w = 0.05 * apart;
+      u.uWiden.value = w;
+      u.uDust.value = clamp01((t - tG + 0.3) / 0.6);
+      u.uL1.value.set(0.66 + w, 0, 2.35);
+      u.uL2.value.set(-0.62 - w, 0, 2.5);
+      u.uFocus.value = Math.hypot(c.pos[1], 2.42 - c.pos[2]);
       u.uAper.value = 0.005;
     },
     post(t) { return grade(t, { exposure: 1.4, bloom: 0.08, threshold: 1.1, contrast: 1.06, saturation: 0.95, vignette: 0.5, grain: 0.014, ca: 0.06 }); },

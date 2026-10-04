@@ -31,7 +31,7 @@ export default (P) => {
       u.uFocus.value = 0.85 * Math.hypot(cx - 0.1 - c.pos[0], 0.05 - c.pos[1], CLOAK_Z - c.pos[2]);
       u.uAper.value = 0.003;
       u.uDawn.value = 0.1 + 0.2 * clamp01((t - P.from) / (P.to - P.from));
-      u.uLay.value = clamp01((t - give + 0.25) / 1.6);
+      u.uLay.value = clamp01((t - give + 0.0) / 1.6);
       u.uGust.value = ease.inOut3(clamp01((t - (P.to - 1.4)) / 1.2));
     },
     post(t) { return grade(t, { exposure: 2.4, bloom: 0.12, threshold: 0.9, contrast: 1.06, vignette: 0.5 }); },

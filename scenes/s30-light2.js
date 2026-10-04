@@ -36,7 +36,7 @@ export default (P) => {
   return {
     name: 's30-light2', from: P.from, to: P.to,
     frag: DAWN_GLSL + 'vec3 shade(vec2 fc) { float d; return dawnScene(fc, d); }',
-    uniforms: { ...DAWN_UNIFORMS, ...lamps, uSunDir: sunDir(-0.28, -0.11), uSunCol: [0, 0, 0], uMoonK: 0.15, uMoonDir: [-0.5, 0.5, -0.6], uMist: 0.5, uCloud: 0.3, uFill: 3.0, uLampI: 0.5, uWave: 0.6 },
+    uniforms: { ...DAWN_UNIFORMS, ...lamps, uSunDir: sunDir(-0.28, -0.11), uSunCol: [0, 0, 0], uMoonK: 0.15, uMoonDir: [-0.5, 0.5, -0.6], uMist: 0.2, uVMist: 0.4, uSlope: 1.0, uLampR: 2.2, uCloud: 0.3, uFill: 3.0, uLampI: 0.5, uWave: 0.6 },
     camera: cam,
     update(t, u) {
       // the first light strengthens as the pan runs along the ridge
