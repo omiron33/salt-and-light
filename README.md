@@ -6,7 +6,7 @@ Built with the Ark engine: https://github.com/omiron33/ark-video-studio
 
 ![Salt and Light: a clay oil lamp catching flame by the Sea of Galilee at night](docs/poster.jpg)
 
-[Listen at TechnoChristianity](https://technochristianity.com/music) · [More films on YouTube](https://www.youtube.com/@technochristianity)
+[Watch the film on YouTube](https://www.youtube.com/watch?v=wncSa0w7QyQ) · [Listen at TechnoChristianity](https://technochristianity.com/music/?work=matthew-5)
 
 The film runs **5:07** at **1920 × 1080 / 60 fps**. Every frame of its 53 scenes is drawn in code on the GPU: the Sea of Galilee at night, a hilltop town of lamplit windows, salt crystals, a Torah scroll, embers, a temple altar, roads and fires before dawn, and sunrise over the mount, with typography set to the sung onset of each word. Nothing in the picture is a photograph, a downloaded model or a generated image.
 
