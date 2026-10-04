@@ -1,0 +1,84 @@
+// s27-go: "Leave your gift and go make peace / Then come and offer it". One sentence, out and back.
+// The gift lies on the altar step in the last of the night; the camera leaves it and travels out
+// across the court, through the gate and onto the road in the blue hour, footprints in the dust
+// leading away. On the road two long shadows (the people are never seen) come toward each other,
+// meet and join in one embrace. Then back at the altar step: the gift is offered, and a clean thread
+// of incense smoke rises straight up into a shaft of gold light on "offer it".
+import { grade, ease, drift, linesAt, wordIn, clamp01, mix } from '/song/lib/look.js';
+import { COURT_GLSL, COURT_UNIFORMS } from '/song/lib/x-temple-court.js';
+
+export const kind = 'shader';
+
+const lerp3 = (a, b, k) => a.map((v, i) => v + (b[i] - v) * k);
+// a smooth path through keyframes [time, value]
+function path(keys, t) {
+  if (t <= keys[0][0]) return keys[0][1];
+  for (let i = 0; i < keys.length - 1; i++) {
+    const [t0, a] = keys[i], [t1, b] = keys[i + 1];
+    if (t <= t1) return lerp3(a, b, ease.inOut3((t - t0) / (t1 - t0)));
+  }
+  return keys[keys.length - 1][1];
+}
+
+export default (P) => {
+  const [A, B] = linesAt(P.from - 0.6, 'Leave your gift', 'Then come');
+  const tGo = wordIn(A, 'go').start, tPeace = wordIn(A, 'peace').start;
+  const tOffer = wordIn(B, 'offer').start;
+  const tBack = 159.34;   // the measured beat before "Then": the cut back to the altar
+  const F = P.from;
+  // out: from the gift, across the court, through the gate, onto the road
+  const outPos = [[F, [-1.5, 0.6, -1.12]], [157.3, [-1.38, 0.62, -1.28]], [157.62, [-0.75, 0.95, -2.2]], [tGo - 0.1, [0.15, 1.6, -5.0]], [tGo + 0.5, [0.0, 2.25, -12.45]], [tBack, [0.0, 2.2, -12.6]]];
+  const outTgt = [[F, [0.15, 0.34, -1.35]], [157.3, [0.15, 0.36, -1.45]], [157.62, [0.1, 1.0, -5.5]], [tGo - 0.1, [0.0, 1.3, -11.0]], [tGo + 0.5, [0.0, 0.45, -17.5]], [tBack, [0.0, 0.4, -17.8]]];
+  // back: low at the step, rising with the incense into the light
+  const inPos = [[tBack, [1.85, 0.5, -3.45]], [P.to, [1.75, 0.62, -3.65]]];
+  const inTgt = [[tBack, [0.45, 0.62, -1.3]], [tOffer - 0.1, [0.5, 0.75, -1.3]], [P.to, [0.5, 1.0, -1.3]]];
+  const back = (t) => t >= tBack;
+  const cam = (t) => {
+    const d = drift(t, 0.005);
+    if (!back(t)) {
+      const p = path(outPos, t), q = path(outTgt, t);
+      return { pos: [p[0] + d[0], p[1] + d[1], p[2]], target: q, fov: mix(42, 40, clamp01((t - 157.3) / 0.5)) + 12 * clamp01((t - tGo + 0.1) / 0.6) };
+    }
+    const p = path(inPos, t), q = path(inTgt, t);
+    return { pos: [p[0] + d[0], p[1] + d[1], p[2]], target: q, fov: 36 };
+  };
+  return {
+    name: 's27-go', from: P.from, to: P.to,
+    frag: COURT_GLSL + 'vec3 shade(vec2 fc) { return court(fc); }',
+    uniforms: { ...COURT_UNIFORMS, uMoon: [0.05, 0.3, 1.0] },
+    camera: cam,
+    update(t, u) {
+      const c = cam(t);
+      u.uFire.value = 1; u.uSmoke.value = 1;
+      if (!back(t)) {
+        u.uBlue.value = mix(0.45, 1.0, clamp01((t - F) / (tGo - F)));
+        u.uIncense.value = 0; u.uGold.value = 0;
+        // the two shadows: walking in from either side, meeting, then one embrace
+        const tOn = tGo + 0.42;
+        u.uShad.value = t > tOn ? 1 : 0;
+        const m = ease.inOut3(clamp01((t - tOn) / (tPeace + 0.15 - tOn)));
+        const hug = ease.inOut3(clamp01((t - tPeace - 0.05) / 0.45));
+        const sep = mix(2.2, 0.22, m) - 0.03 * hug;
+        u.uP1.value.set(sep, 0, -11.7);
+        u.uP2.value.set(-sep, 0, -11.7);
+        // facing each other (yaw so that each faces the other along x), arms rising round the other
+        u.uPA.value.set(Math.PI / 2, -Math.PI / 2, hug);
+        u.uFocus.value = 7.0; u.uAper.value = 0.003;
+        if (t < tGo - 0.1) { u.uFocus.value = mix(1.6, 5.0, ease.inOut3(clamp01((t - 157.3) / (tGo - 0.1 - 157.3)))); }
+      } else {
+        u.uBlue.value = 0.7;
+        u.uShad.value = 0;
+        u.uIncense.value = mix(0.25, 1.0, ease.inOut3(clamp01((t - tBack) / (P.to - tBack))));
+        u.uGold.value = 0.15 + 0.85 * ease.inOut3(clamp01((t - tOffer + 0.15) / 0.7));
+        u.uFocus.value = Math.hypot(c.pos[0] - 0.7, c.pos[1] - 0.6, c.pos[2] + 1.28);
+        u.uAper.value = 0.004;
+      }
+    },
+    post(t) { return grade(t, { exposure: back(t) ? 1.45 : 1.5, bloom: 0.11, threshold: 1.0, contrast: 1.05, vignette: 0.5, grain: 0.014, ca: 0.06 }); },
+    finish(t) {
+      return back(t)
+        ? { grade: { shadows: [0.0, 0.01, 0.03], highlights: [1.0, 0.9, 0.74], amount: 0.45 } }
+        : { grade: { shadows: [0.0, 0.015, 0.04], highlights: [0.96, 0.95, 0.98], amount: 0.4 } };
+    },
+  };
+};

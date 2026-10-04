@@ -1,0 +1,347 @@
+{
+ "fps": 60,
+ "samples": 10,
+ "tier": "standard",
+ "lyric": {
+  "haloSpread": 9,
+  "shade": 0.5
+ },
+ "scenes": [
+  {
+   "id": "00",
+   "scene": "s00-title",
+   "from": 0.0,
+   "to": 16.75,
+   "hold": "the title over the instrumental opening"
+  },
+  {
+   "id": "01",
+   "scene": "s01-poor",
+   "from": 16.75,
+   "to": 24.39,
+   "hold": "the first blessing, sung slowly"
+  },
+  {
+   "id": "02",
+   "scene": "s02-mourn",
+   "from": 24.39,
+   "to": 32.05
+  },
+  {
+   "id": "03",
+   "scene": "s03-gentle",
+   "from": 32.05,
+   "to": 38.22
+  },
+  {
+   "id": "04",
+   "scene": "s04-thirst",
+   "from": 38.22,
+   "to": 45.39
+  },
+  {
+   "id": "05",
+   "scene": "s05-mercy",
+   "from": 45.39,
+   "to": 49.68
+  },
+  {
+   "id": "06",
+   "scene": "s06-pure",
+   "from": 49.68,
+   "to": 53.04
+  },
+  {
+   "id": "07",
+   "scene": "s07-peace",
+   "from": 53.04,
+   "to": 61.11,
+   "hold": "one long sung line"
+  },
+  {
+   "id": "08",
+   "scene": "s08-thorns",
+   "from": 61.11,
+   "to": 64.93
+  },
+  {
+   "id": "09",
+   "scene": "s09-storm",
+   "from": 64.93,
+   "to": 69.22
+  },
+  {
+   "id": "10",
+   "scene": "s10-rejoice",
+   "from": 69.22,
+   "to": 75.87,
+   "hold": "the held line into the chorus"
+  },
+  {
+   "id": "11",
+   "scene": "s11-salt",
+   "from": 75.87,
+   "to": 79.73
+  },
+  {
+   "id": "12",
+   "scene": "s12-taste",
+   "from": 79.73,
+   "to": 83.54
+  },
+  {
+   "id": "13",
+   "scene": "s13-shore",
+   "from": 83.54,
+   "to": 87.36
+  },
+  {
+   "id": "14",
+   "scene": "s14-city",
+   "from": 87.36,
+   "to": 91.17
+  },
+  {
+   "id": "15",
+   "scene": "s15-basket",
+   "from": 91.17,
+   "to": 95.0
+  },
+  {
+   "id": "16",
+   "scene": "s16-stand",
+   "from": 95.0,
+   "to": 99.28
+  },
+  {
+   "id": "17",
+   "scene": "s17-door",
+   "from": 99.28,
+   "to": 104.49
+  },
+  {
+   "id": "18",
+   "scene": "s18-glory",
+   "from": 104.49,
+   "to": 109.91
+  },
+  {
+   "id": "19",
+   "scene": "s19-night-sea",
+   "from": 109.91,
+   "to": 122.19,
+   "hold": "the instrumental interlude: one slow glide over the night sea"
+  },
+  {
+   "id": "20",
+   "scene": "s20-law",
+   "from": 122.19,
+   "to": 129.8,
+   "hold": "two lines of one sentence"
+  },
+  {
+   "id": "21",
+   "scene": "s21-fulfill",
+   "from": 129.8,
+   "to": 133.61
+  },
+  {
+   "id": "22",
+   "scene": "s22-mark",
+   "from": 133.61,
+   "to": 140.76,
+   "hold": "two lines of one sentence"
+  },
+  {
+   "id": "23",
+   "scene": "s23-murder",
+   "from": 140.76,
+   "to": 145.04
+  },
+  {
+   "id": "24",
+   "scene": "s24-anger",
+   "from": 145.04,
+   "to": 148.85
+  },
+  {
+   "id": "25",
+   "scene": "s25-altar",
+   "from": 148.85,
+   "to": 152.13
+  },
+  {
+   "id": "26",
+   "scene": "s26-grievance",
+   "from": 152.13,
+   "to": 156.49
+  },
+  {
+   "id": "27",
+   "scene": "s27-go",
+   "from": 156.49,
+   "to": 161.67,
+   "hold": "leave and return: one sentence"
+  },
+  {
+   "id": "28",
+   "scene": "s28-salt2",
+   "from": 161.67,
+   "to": 165.53
+  },
+  {
+   "id": "29",
+   "scene": "s29-taste2",
+   "from": 165.53,
+   "to": 169.34
+  },
+  {
+   "id": "30",
+   "scene": "s30-light2",
+   "from": 169.34,
+   "to": 173.15
+  },
+  {
+   "id": "31",
+   "scene": "s31-city2",
+   "from": 173.15,
+   "to": 176.97
+  },
+  {
+   "id": "32",
+   "scene": "s32-lamp2",
+   "from": 176.97,
+   "to": 180.78
+  },
+  {
+   "id": "33",
+   "scene": "s33-house2",
+   "from": 180.78,
+   "to": 185.06
+  },
+  {
+   "id": "34",
+   "scene": "s34-works2",
+   "from": 185.06,
+   "to": 190.29
+  },
+  {
+   "id": "35",
+   "scene": "s35-glory2",
+   "from": 190.29,
+   "to": 197.66,
+   "hold": "the chorus rings out"
+  },
+  {
+   "id": "36",
+   "scene": "s36-heart",
+   "from": 197.66,
+   "to": 205.27,
+   "hold": "two lines of one teaching"
+  },
+  {
+   "id": "37",
+   "scene": "s37-eye",
+   "from": 205.27,
+   "to": 211.73,
+   "hold": "two lines of one teaching"
+  },
+  {
+   "id": "38",
+   "scene": "s38-gehenna",
+   "from": 211.73,
+   "to": 218.88,
+   "hold": "two lines of one teaching"
+  },
+  {
+   "id": "39",
+   "scene": "s39-vows",
+   "from": 218.88,
+   "to": 223.16
+  },
+  {
+   "id": "40",
+   "scene": "s40-yes",
+   "from": 223.16,
+   "to": 228.94,
+   "hold": "yes and no, one thought"
+  },
+  {
+   "id": "41",
+   "scene": "s41-cheek",
+   "from": 228.94,
+   "to": 235.74,
+   "hold": "eye for an eye turned into the other cheek, one sentence"
+  },
+  {
+   "id": "42",
+   "scene": "s42-cloak",
+   "from": 235.74,
+   "to": 241.84
+  },
+  {
+   "id": "43",
+   "scene": "s43-mile",
+   "from": 241.84,
+   "to": 248.99
+  },
+  {
+   "id": "44",
+   "scene": "s44-give",
+   "from": 248.99,
+   "to": 256.6,
+   "hold": "two lines of one sentence"
+  },
+  {
+   "id": "45",
+   "scene": "s45-fires",
+   "from": 256.6,
+   "to": 260.727
+  },
+  {
+   "id": "46",
+   "scene": "s46-love",
+   "from": 260.727,
+   "to": 264.22
+  },
+  {
+   "id": "47",
+   "scene": "s47-pray",
+   "from": 264.22,
+   "to": 268.5
+  },
+  {
+   "id": "48",
+   "scene": "s48-sun",
+   "from": 268.5,
+   "to": 272.31
+  },
+  {
+   "id": "49",
+   "scene": "s49-rain",
+   "from": 272.31,
+   "to": 276.45
+  },
+  {
+   "id": "50",
+   "scene": "s50-reward",
+   "from": 276.45,
+   "to": 283.8,
+   "hold": "the question and its silence"
+  },
+  {
+   "id": "51",
+   "scene": "s51-perfect",
+   "from": 283.8,
+   "to": 295.92,
+   "hold": "the last line and the light that answers it"
+  },
+  {
+   "id": "52",
+   "scene": "s52-end",
+   "from": 295.92,
+   "to": 306.8,
+   "hold": "the end title over the closing instrumental"
+  }
+ ]
+}
